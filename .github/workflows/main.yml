@@ -11,7 +11,7 @@ jobs:
       - name: Render Python Project
         uses: jayamanikharyono/jinja-action@v0.1
         with:
-          datafile: tests/template_data.json
+          datafile: template_data.json
           path: /*
       - name: Sync To GCS
         uses: ./action/action-gcloud
@@ -19,5 +19,5 @@ jobs:
           PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
           APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         with:
-          args: rsync -d -r ./* gs://github_action_test
+          args: rsync -d -r '/*' 'gs://github_action_test'
           cli: gsutil
