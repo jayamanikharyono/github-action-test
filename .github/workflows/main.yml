@@ -12,7 +12,7 @@ jobs:
         uses: jayamanikharyono/jinja-action@v0.1
         with:
           datafile: template_data.json
-          path: pwd/*
+          path: $PWD/*
       - name: Sync To GCS
         uses: ./action/action-gcloud
         env:
