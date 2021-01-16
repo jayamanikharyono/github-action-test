@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Render Python Project
-        uses: /jayamanikharyono/jinja-action
+        uses: jayamanikharyono/jinja-action@v0.1
         with:
           datafile: tests/template_data.json
           path: /*
