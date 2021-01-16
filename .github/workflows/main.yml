@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - run: ls
-      - run: PWD
+      - run: pwd
       - name: Render Python Project
         uses: jayamanikharyono/jinja-action@v0.1
         with:
