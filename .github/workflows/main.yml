@@ -17,5 +17,5 @@ jobs:
           PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
           APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         with:
-          args: cp -r * gs://github_action_test
+          args: cp -r ./* gs://github_action_test
           cli: gsutil
