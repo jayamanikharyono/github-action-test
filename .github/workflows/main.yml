@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - run: ls
+      - run: PWD
       - name: Render Python Project
         uses: jayamanikharyono/jinja-action@v0.1
         with:
@@ -17,5 +19,5 @@ jobs:
           PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
           APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         with:
-          args: rsync -d -r /* gs://github_action_test/
+          args: rsync -d -r /* gs://github_action_test
           cli: gsutil
