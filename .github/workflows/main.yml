@@ -19,5 +19,5 @@ jobs:
           PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
           APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         with:
-          args: rsync -d -r /* gs://github_action_test
+          args: rsync -d -r ./* gs://github_action_test
           cli: gsutil
