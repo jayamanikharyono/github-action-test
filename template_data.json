@@ -1,0 +1,6 @@
+{
+	"message": "mesage text",
+	"payload": {
+		"body":"payload body"
+	}
+}
