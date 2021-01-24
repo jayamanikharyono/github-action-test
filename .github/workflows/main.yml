@@ -13,6 +13,12 @@ jobs:
         with:
           datafile: template_data.json
           path: ./*.py
+      - name: Airflow DAGs Validation
+        uses: jayamanikharyono/airflow-dag-action@v0.1-alpha
+        with:
+          requirementsFile: airflow/requirements.txt
+          dagPaths: airflow/dags
+          varFile: airflow/var_stg.json
       - name: Sync To GCS
         uses: ./action/action-gcloud
         env:
