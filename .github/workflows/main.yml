@@ -15,7 +15,7 @@ jobs:
       - name: Printing
         run: |
           echo "All:"
-          echo "${{ steps.diff_files.outputs.addmodified }}"
+          echo "${{ steps.diff_files.outputs.addmodified }}" | tr ' ' ','
       - run: ls
       - run: pwd
       - name: Render Python Project
