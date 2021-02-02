@@ -8,7 +8,7 @@ def main(args):
     addmodified = args.addmodified
     excluded_files = addmodified.split(",")
     for file in excluded_files:
-        print(file)
+        logging.info(file)
     """
     for subdir, dirs, files in os.walk('airflow/dags/'):
         for file in files:
