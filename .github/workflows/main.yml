@@ -11,7 +11,7 @@ jobs:
       - name: get diff files
         id: diff_files
         run: |
-          echo "::set-output name=addmodified::"+$(git diff --name-only --no-merges origin/master)
+          echo "::set-output name=addmodified::"$(git diff --name-only --no-merges origin/master)
       - name: Printing
         run: |
           echo "All:"
