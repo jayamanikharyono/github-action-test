@@ -22,6 +22,6 @@ jobs:
           python-version: 3.8 #install the python needed
       - name: execute py script # run the run.py to get the latest data
         run: |
-          python .github/filter_dags.py --addmodified "${{ steps.diff_files.outputs.addmodified }}" | tr ' ' ','
+          python .github/filter_dags.py --addmodified "${{ steps.diff_files.outputs.addmodified }}"
       - run: ls
       - run: pwd
