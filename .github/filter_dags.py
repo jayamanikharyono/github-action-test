@@ -5,10 +5,12 @@ import argparse
 
 def main(args):
     logging.info("added and modified : {}".format(args.addmodified))
+    print("added and modified : {}".format(args.addmodified))
     addmodified = args.addmodified
     excluded_files = addmodified.split(" ")
     for file in excluded_files:
         logging.info(file)
+        print(file)
     """
     for subdir, dirs, files in os.walk('airflow/dags/'):
         for file in files:
