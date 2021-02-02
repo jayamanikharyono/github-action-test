@@ -6,7 +6,7 @@ import argparse
 def main(args):
     logging.info("added and modified : {}".format(args.addmodified))
     addmodified = args.addmodified
-    excluded_files = set(addmodified[1:-1].split(","))
+    excluded_files = addmodified.split(",")
     for file in excluded_files:
         print(file)
     """
