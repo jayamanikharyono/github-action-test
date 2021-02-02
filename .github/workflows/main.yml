@@ -9,7 +9,7 @@ jobs:
       - name: get diff files
         id: diff_files
         run: |
-          echo "::set-output name=addmodified::$(git diff --name-only --no-merges master) | tr ' ' ','"
+          echo "::set-output name=addmodified::$(git diff --name-only --no-merges origin/master) | tr ' ' ','"
       - name: Printing
         run: |
           echo "All:"
