@@ -6,32 +6,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: get diff files
         id: diff_files
         run: |
-          echo "::set-output name=addmodified::$(git diff --name-only --no-merges master...) | tr ' ' ','"
+          echo "::set-output name=addmodified::"$(git diff --name-only --no-merges origin/master)
       - name: Printing
         run: |
           echo "All:"
-          echo "${{ steps.diff_files.outputs.addmodified }}"
+          echo "${{ steps.diff_files.outputs.addmodified }}" | tr ' ' ','
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python needed
+      - name: execute py script # run the run.py to get the latest data
+        run: |
+          python .github/filter_dags.py --addmodified "${{ steps.diff_files.outputs.addmodified }}"
       - run: ls
       - run: pwd
-      - name: Render Python Project
-        uses: jayamanikharyono/jinja-action@v0.1
-        with:
-          datafile: template_data.json
-          path: ./*.py
-      - name: Airflow DAGs Validation
-        uses: jayamanikharyono/airflow-dag-action@v0.1-alpha
-        with:
-          requirementsFile: airflow/requirements.txt
-          dagPaths: airflow/dags
-          varFile: airflow/var_stg.json
-      - name: Sync To GCS
-        uses: ./action/action-gcloud
-        env:
-          PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-          APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-        with:
-          args: rsync -d -r $PWD gs://github_action_test
-          cli: gsutil
