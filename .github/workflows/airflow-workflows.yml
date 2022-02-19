@@ -1,0 +1,20 @@
+name: Airflow CI/CD Pipeline
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'airflow/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Airflow DAGs Validation
+        uses: jayamanikharyono/airflow-dag-action@v1.6
+        with:
+          requirementsFile: airflow/requirements.txt
+          dagPaths: airflow/dags
+          varFile: airflow/variables.json
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
