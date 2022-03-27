@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - run: ls
+      - run: pwd
+      - run: tree
       - name: Airflow DAGs Validation
         #uses: jayamanikharyono/airflow-dag-action@v1.6
         uses: jayamanikharyono/airflow-dag-action@master
