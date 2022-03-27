@@ -4,6 +4,7 @@ from airflow.utils.dates import days_ago
 from airflow.operators.python_operator import PythonOperator
 
 from datetime import timedelta
+import some_library
 
 DAG_ID = "test_dag_v2"
 default_args = {
