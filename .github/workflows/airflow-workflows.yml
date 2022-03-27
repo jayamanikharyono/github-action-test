@@ -15,7 +15,14 @@ jobs:
       - run: pwd
       - run: tree
       - name: Airflow DAGs Validation
-        uses: jayamanikharyono/airflow-dag-action@dev
+        uses: jayamanikharyono/airflow-dag-action@v2.0
+        with:
+          requirementsFile: airflow/requirements.txt
+          dagPaths: airflow/dags
+          varFile: airflow/variables.json
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Airflow DAGs Validation Releases
+        uses: jayamanikharyono/airflow-dag-action@latest
         with:
           requirementsFile: airflow/requirements.txt
           dagPaths: airflow/dags
