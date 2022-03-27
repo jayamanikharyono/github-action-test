@@ -12,7 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Airflow DAGs Validation
-        uses: jayamanikharyono/airflow-dag-action@v1.6
+        #uses: jayamanikharyono/airflow-dag-action@v1.6
+        uses: jayamanikharyono/airflow-dag-action@master
         with:
           requirementsFile: airflow/requirements.txt
           dagPaths: airflow/dags
