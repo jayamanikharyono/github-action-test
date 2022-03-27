@@ -22,7 +22,7 @@ jobs:
           varFile: airflow/variables.json
           accessToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Airflow DAGs Validation Releases
-        uses: jayamanikharyono/airflow-dag-action@latest
+        uses: jayamanikharyono/airflow-dag-action@master
         with:
           requirementsFile: airflow/requirements.txt
           dagPaths: airflow/dags
