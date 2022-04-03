@@ -1,0 +1,15 @@
+workbooks:
+    - name: film_workbook
+      file_path: film_workbook.twb
+      project_path: Dashboard/Film
+    - name: film_with_optionm_workbook
+      file_path: film_workbook.twb
+      project_path: Dashboard/Film
+      option:
+        tags:
+          - sample
+          - temp
+        hidden_views:
+          - Event by day
+        show_tabs: true
+        description: Sample description
